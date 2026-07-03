@@ -1,0 +1,182 @@
+{
+  "info": {
+    "name": "Employee Payroll REST API",
+    "_postman_id": "emp-payroll-collection-v1",
+    "description": "Complete API test collection for the Spring Boot Employee Payroll REST application with JWT authentication.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8080",
+      "type": "string"
+    },
+    {
+      "key": "jwt_token",
+      "value": "",
+      "type": "string",
+      "description": "Auto-populated after running the Login request"
+    }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register User (ADMIN)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}/api/auth/register", "host": ["{{base_url}}"], "path": ["api", "auth", "register"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"hr_kiran\",\n  \"password\": \"Kiran@12\",\n  \"email\": \"kiran@payroll.com\",\n  \"role\": \"ADMIN\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Register User (USER role)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}/api/auth/register", "host": ["{{base_url}}"], "path": ["api", "auth", "register"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"emp_user\",\n  \"password\": \"User@123\",\n  \"email\": \"user@payroll.com\",\n  \"role\": \"USER\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Login (Get JWT Token)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var jsonData = pm.response.json();",
+                  "if (jsonData.jwttoken) {",
+                  "    pm.collectionVariables.set('jwt_token', jsonData.jwttoken);",
+                  "    console.log('JWT token saved to collection variable.');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}/api/auth/login", "host": ["{{base_url}}"], "path": ["api", "auth", "login"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"hr_kiran\",\n  \"password\": \"Kiran@12\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Employees",
+      "item": [
+        {
+          "name": "Add Employee",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{jwt_token}}" }
+            ],
+            "url": { "raw": "{{base_url}}/api/employees", "host": ["{{base_url}}"], "path": ["api", "employees"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Amarpa Keerthi Kumar\",\n  \"profileImage\": \"ellipse-1.png\",\n  \"gender\": \"Female\",\n  \"departments\": [\"Sales\", \"HR\", \"Finance\"],\n  \"salary\": 10000.00,\n  \"startDate\": \"2019-10-29\",\n  \"notes\": \"Senior specialist account manager.\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Add Employee 2",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{jwt_token}}" }
+            ],
+            "url": { "raw": "{{base_url}}/api/employees", "host": ["{{base_url}}"], "path": ["api", "employees"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Mohammed Salman Iqbal Shaikh\",\n  \"profileImage\": \"ellipse-2.png\",\n  \"gender\": \"Male\",\n  \"departments\": [\"Sales\", \"HR\", \"Finance\"],\n  \"salary\": 10800.00,\n  \"startDate\": \"2019-10-29\",\n  \"notes\": \"Technical lead in finance division.\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get All Employees",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{jwt_token}}" }],
+            "url": { "raw": "{{base_url}}/api/employees", "host": ["{{base_url}}"], "path": ["api", "employees"] }
+          }
+        },
+        {
+          "name": "Get Employee By ID",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{jwt_token}}" }],
+            "url": { "raw": "{{base_url}}/api/employees/1", "host": ["{{base_url}}"], "path": ["api", "employees", "1"] }
+          }
+        },
+        {
+          "name": "Get Employee Not Found (404)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{jwt_token}}" }],
+            "url": { "raw": "{{base_url}}/api/employees/999", "host": ["{{base_url}}"], "path": ["api", "employees", "999"] }
+          }
+        },
+        {
+          "name": "Update Employee Salary",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{jwt_token}}" }
+            ],
+            "url": { "raw": "{{base_url}}/api/employees/1", "host": ["{{base_url}}"], "path": ["api", "employees", "1"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"salary\": 12500.00,\n  \"notes\": \"Updated salary for account specialist.\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Employee",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Authorization", "value": "Bearer {{jwt_token}}" }],
+            "url": { "raw": "{{base_url}}/api/employees/1", "host": ["{{base_url}}"], "path": ["api", "employees", "1"] }
+          }
+        },
+        {
+          "name": "Department Payroll Summary (ADMIN only)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{jwt_token}}" }],
+            "url": {
+              "raw": "{{base_url}}/api/employees/summary?department=HR",
+              "host": ["{{base_url}}"],
+              "path": ["api", "employees", "summary"],
+              "query": [{ "key": "department", "value": "HR" }]
+            }
+          }
+        },
+        {
+          "name": "Unauthorized Access (No Token - 401)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{base_url}}/api/employees", "host": ["{{base_url}}"], "path": ["api", "employees"] }
+          }
+        }
+      ]
+    }
+  ]
+}

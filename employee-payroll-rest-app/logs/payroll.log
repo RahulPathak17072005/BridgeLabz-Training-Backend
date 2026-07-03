@@ -1,0 +1,40 @@
+2026-06-29 10:14:46.568 [main] INFO  payroll.EmployeePayrollRestAppApplication - Starting EmployeePayrollRestAppApplication using Java 23.0.1 with PID 9832 (D:\MavenProjects\employee-payroll-rest-app\target\classes started by HP in D:\MavenProjects\employee-payroll-rest-app)
+2026-06-29 10:14:46.586 [main] DEBUG payroll.EmployeePayrollRestAppApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-06-29 10:14:46.588 [main] INFO  payroll.EmployeePayrollRestAppApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-29 10:14:47.733 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-29 10:14:47.806 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 61 ms. Found 2 JPA repository interfaces.
+2026-06-29 10:14:48.586 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-29 10:14:48.602 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-06-29 10:14:48.604 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-29 10:14:48.605 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-06-29 10:14:48.682 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-06-29 10:14:48.682 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2036 ms
+2026-06-29 10:14:48.740 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-06-29 10:14:49.054 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-06-29 10:14:49.057 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-06-29 10:14:49.073 [main] INFO  org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2026-06-29 10:14:49.228 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-29 10:14:49.365 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-06-29 10:14:49.409 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-29 10:14:49.744 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-29 10:14:49.806 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-29 10:14:50.970 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-29 10:14:51.083 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-29 10:14:51.574 [main] DEBUG payroll.security.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+2026-06-29 10:14:51.738 [main] INFO  org.springframework.data.jpa.repository.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-06-29 10:14:51.955 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-29 10:14:52.423 [main] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@dc28d74, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@12922d53, org.springframework.security.web.context.SecurityContextHolderFilter@541d8a9e, org.springframework.security.web.header.HeaderWriterFilter@2a4a95c4, org.springframework.web.filter.CorsFilter@f28ee19, org.springframework.security.web.authentication.logout.LogoutFilter@9742012, payroll.security.JwtRequestFilter@3cd758be, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@32cda33c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5bb24266, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7c07deff, org.springframework.security.web.session.SessionManagementFilter@653c0c9c, org.springframework.security.web.access.ExceptionTranslationFilter@76fdd5f1, org.springframework.security.web.access.intercept.AuthorizationFilter@5c7876e1]
+2026-06-29 10:14:52.898 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-06-29 10:14:52.940 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2026-06-29 10:14:52.955 [main] INFO  payroll.EmployeePayrollRestAppApplication - Started EmployeePayrollRestAppApplication in 6.846 seconds (process running for 13.467)
+2026-06-29 10:15:15.592 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-29 10:15:15.593 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-29 10:15:15.594 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-06-29 10:15:16.666 [http-nio-8080-exec-8] INFO  org.springdoc.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 571 ms
+2026-06-29 13:58:30.979 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h29m9s625ms738µs100ns).
+2026-06-29 14:32:27.691 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m56s248ms300µs600ns).
+2026-06-29 16:52:24.769 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h30m26s165ms984µs400ns).
+2026-06-29 17:48:49.007 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=48m24s139ms668µs200ns).
+2026-06-29 17:48:51.458 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-29 17:48:51.622 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-06-29 17:48:51.644 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
